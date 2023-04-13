@@ -1,0 +1,45 @@
+{% extends 'products/base.html' %}
+{%load static%}
+{%block content%}
+
+<div class="container">
+	<!-- code here -->
+	<div class="card">
+		<div class="card-image">	
+			<h2 class="card-heading">
+				Add Your Product Details
+
+			</h2>
+		</div>
+		<form class="card-form" method="POST">
+     {%csrf_token%}
+     {{form.non_field_errors}}
+      {%for field in form%}
+      <div class="input">
+        {{field.label_tag}}
+        <div class="errors">
+          {{field.errors}}
+        </div>
+       
+				{{field}}
+        
+			</div>
+      {%endfor%}
+		
+   		
+			<div class="action">
+				<button class="action-button" type="submit">Create</button>
+			</div>
+
+     
+		</form> 
+	</div>
+</div>
+
+
+
+
+{%endblock content%}
+
+
+
